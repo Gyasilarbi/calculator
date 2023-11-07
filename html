@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js" integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
+<body>
+  <table id="calculator" style="display:flex;  align-items :center; justify-content:center;">
+                    <tr>
+                        <td colspan="4">
+                            <input type="text" style="width: 300px; height: 100px; border-radius: 10px; border: 1px solid black; font-size: 30px;" id="answer">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; width: 100%; padding: 20px; margin: 5px;" value="AC" onclick="clear_input(0)" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; width: 100%; padding: 20px; margin: 5px;" value="()" onclick="res('()')" o0keydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; width: 100%; padding: 20px; margin: 5px;" value="%" onclick="res('%')" onk0ydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:orange; width: 100%; padding: 20px; margin:05px;" value="/" onclick="res('/')" onkeydown="ans(event)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="7" onclick="res('7')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="8" onclick="res('8')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="9" onclick="res('9')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:orange; width: 100%; padding: 20px; margin:05px;" value="*" onclick="res('*')" onkeydown="ans(event)">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="4" onclick="res('4')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="5" onclick="res('5')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="6" onclick="res('6')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:orange; width: 100%; padding: 20px; margin:05px;" value="-" onclick="res('-')" onkeydown="ans(event)">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="1" onclick="res('1')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="2" onclick="res('2')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="3" onclick="res('3')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:orange; width: 100%; padding: 20px; margin:05px;" value="+" onclick="res('+')" onkeydown="ans(event)">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="." onclick="res('.')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:black; width: 100%; padding: 20px; margin: 0px;" value="0" onclick="res('0')" onkeydown="ans(event)">
+                        </td>
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; width: 100%; padding: 20px; margin: 5px;" value="clear" onclick="clearfield(0)" onkeydown="ans(event)">
+                        </td>
+
+                        <!-- calculate function call function calculate to evaluate value -->
+                        <td>
+                            <input type="button" style="border:none; border-radius: 10px; color: white; background-color:orange; width: 100%; padding: 20px; margin:05px;" value="=" onclick="calculate()">
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+            </div>
+</body>  
